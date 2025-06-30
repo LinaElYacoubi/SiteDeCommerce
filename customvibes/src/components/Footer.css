@@ -1,0 +1,42 @@
+.custom-footer {
+  background: #FFF8F0;
+  border-radius: 18px 18px 0 0;
+  color: #6D4C41; 
+  font-family: 'Montserrat', 'Poppins', Arial, sans-serif;
+  box-shadow: 0 -2px 8px rgba(110, 60, 20, 0.06);
+  padding-top: 18px;
+  padding-bottom: 18px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.footer-logo {
+  font-size: 1.08rem;
+  font-weight: 600;
+  color: #6D4C41; 
+  margin-bottom: 5px;
+}
+
+.footer-links {
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  color: #F97316; 
+  text-decoration: none;
+  margin: 0 6px;
+  font-weight: 500;
+  transition: color 0.18s;
+}
+
+.footer-links a:hover {
+  color: #B66A14; 
+}
+
+.footer-copyright {
+  font-size: 0.92rem;
+  color: #8D6E63; 
+}

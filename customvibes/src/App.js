@@ -1,7 +1,9 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import CustomVibesNavbar from './components/CustomVibesNavbar';
+
 import Home from './pages/Home';
 import About from './pages/About';
 import Products from './pages/Products';
@@ -14,7 +16,7 @@ function App() {
   return (
     <Router>
       <div style={{ minHeight: '100vh', position: 'relative', paddingBottom: '4rem' }}>
-        <Navbar />
+        <CustomVibesNavbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />

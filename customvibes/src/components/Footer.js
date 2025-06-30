@@ -1,21 +1,18 @@
-import React from 'react';
+import { Container } from 'react-bootstrap';
+import './Footer.css';
 
-function Footer() {
+export default function Footer() {
   return (
-    <footer style={{
-      background: '#f7f7f7',
-      padding: '1rem 2rem',
-      borderTop: '1px solid #eee',
-      textAlign: 'center',
-      color: '#888',
-      position: 'fixed',
-      left: 0,
-      bottom: 0,
-      width: '100%'
-    }}>
-      &copy; {new Date().getFullYear()} CustomVibes – If you have any questions or other problems, please post them in the comments.
+    <footer className="custom-footer mt-auto py-4">
+      <Container className="text-center">
+        <div className="footer-links">
+          <a href="mailto:support@customvibes.com">Contact</a> | 
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"> Instagram</a>
+        </div>
+        <div className="footer-copyright">
+          &copy; {new Date().getFullYear()} CustomVibes. All rights reserved.
+        </div>
+      </Container>
     </footer>
   );
 }
-
-export default Footer;
