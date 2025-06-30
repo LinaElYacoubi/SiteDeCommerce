@@ -1,0 +1,53 @@
+.about-main {
+  background: #fff8f0;
+  min-height: 100vh;
+  font-family: 'Montserrat', 'Poppins', Arial, sans-serif;
+  padding-top: 10px;
+  padding-bottom: 5px;
+
+}
+
+.about-hero-section {
+  background: linear-gradient(110deg, #fff8f0 70%, #fce8d9 100%);
+  border-radius: 22px;
+  box-shadow: 0 2px 18px rgba(249,115,22,0.07);
+  max-width: 920px;
+  margin: 38px auto 24px auto;
+  padding: 38px 18px 32px 18px;
+}
+
+.about-title {
+  color: #6D4C41;
+  font-size: 2rem;
+  font-weight: 900;
+  margin-bottom: 15px;
+  letter-spacing: 0.8px;
+}
+
+.about-desc {
+  color: #A47149;
+  font-size: 1.05rem;
+  margin-bottom: 18px;
+  font-weight: 500;
+}
+
+.about-list {
+  list-style: none;
+  padding: 0;
+  color: #6D4C41;
+  font-size: 1.07rem;
+  font-weight: 600;
+}
+.about-list li {
+  margin-bottom: 9px;
+}
+
+.about-img {
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(110,60,20,0.09);
+  max-height: 200px;
+  width: auto;
+  margin: 0 auto;
+  background: #fff8f0;
+  padding: 4px;
+}
