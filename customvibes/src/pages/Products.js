@@ -1,15 +1,29 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Card, Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import productsData from '../data/product';
+import productsData from '../data/product'; 
 import './Products.css';
 
 const categories = [...new Set(productsData.map(p => p.category))];
 const colors = [...new Set(productsData.flatMap(p => p.colors || []))];
+const customizationChoices = [
+  { value: '', label: 'All' },
+  { value: 'Text', label: 'Text' },
+  { value: 'Image', label: 'Image' },
+  { value: 'Both', label: 'Text & Image' }
+];
+const priceRanges = [
+  { value: '', label: 'All' },
+  { value: 'under15', label: 'Under 15$' },
+  { value: '15to25', label: '15$ - 25$' },
+  { value: 'over25', label: 'Over 25$' }
+];
 
 function Products() {
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedColor, setSelectedColor] = useState('');
+  const [selectedCustomization, setSelectedCustomization] = useState('');
+  const [selectedPrice, setSelectedPrice] = useState('');
   const [search, setSearch] = useState('');
 
   const filteredProducts = productsData.filter((prod) => {
@@ -19,7 +33,22 @@ function Products() {
       ? prod.name.toLowerCase().includes(search.toLowerCase()) ||
         (prod.descriptionLong && prod.descriptionLong.toLowerCase().includes(search.toLowerCase()))
       : true;
-    return matchCategory && matchColor && matchSearch;
+    
+    const matchPrice = selectedPrice
+      ? (selectedPrice === "under15" && prod.priceValue < 15)
+        || (selectedPrice === "15to25" && prod.priceValue >= 15 && prod.priceValue <= 25)
+        || (selectedPrice === "over25" && prod.priceValue > 25)
+      : true;
+  
+    let matchCustomization = true;
+    if (selectedCustomization) {
+      if (selectedCustomization === 'Both') {
+        matchCustomization = prod.customizationOptions && prod.customizationOptions.includes('Text') && prod.customizationOptions.includes('Image');
+      } else {
+        matchCustomization = prod.customizationOptions && prod.customizationOptions.includes(selectedCustomization);
+      }
+    }
+    return matchCategory && matchColor && matchPrice && matchCustomization && matchSearch;
   });
 
   return (
@@ -62,6 +91,32 @@ function Products() {
                 <option value="">All</option>
                 {colors.map((color) => (
                   <option key={color} value={color}>{color}</option>
+                ))}
+              </Form.Select>
+            </Form.Group>
+          </Col>
+          <Col xs={6} md={3}>
+            <Form.Group>
+              <Form.Label>Price</Form.Label>
+              <Form.Select
+                value={selectedPrice}
+                onChange={(e) => setSelectedPrice(e.target.value)}
+              >
+                {priceRanges.map(opt => (
+                  <option key={opt.value} value={opt.value}>{opt.label}</option>
+                ))}
+              </Form.Select>
+            </Form.Group>
+          </Col>
+          <Col xs={6} md={3}>
+            <Form.Group>
+              <Form.Label>Personalization</Form.Label>
+              <Form.Select
+                value={selectedCustomization}
+                onChange={(e) => setSelectedCustomization(e.target.value)}
+              >
+                {customizationChoices.map(opt => (
+                  <option key={opt.value} value={opt.value}>{opt.label}</option>
                 ))}
               </Form.Select>
             </Form.Group>

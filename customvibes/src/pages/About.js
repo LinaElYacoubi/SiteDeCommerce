@@ -12,7 +12,7 @@ function About() {
             <Col md={6} className="mb-4 mb-md-0">
               <h1 className="about-title">About CustomVibes</h1>
               <p className="about-desc">
-                CustomVibes is your go-to destination for high-quality personalized mugs, totes, and t-shirts.<br />
+                CustomVibes is your go-to destination for high-quality personalized mugs, totes, t-shirts, hoodies and phone cases.<br />
                 We believe everyone deserves to express their creativity — that’s why we make it easy to turn your ideas into unique products that bring joy every day.
               </p>
               <ul className="about-list">

@@ -6,6 +6,8 @@ const productsData = [
     colors: ['White', 'Black', 'Pink'],
     descriptionLong: 'Personalize this classic mug with your own text or image. Dishwasher and microwave safe.',
     price: '13.99',
+    priceValue: 13.99,
+    customizationOptions: ['Text', 'Image'],
     image: require('../assets/mug.png')
   },
   {
@@ -15,6 +17,8 @@ const productsData = [
     colors: ['Beige', 'Pink', 'Black'],
     descriptionLong: 'Design your own eco-friendly tote bag, perfect for everyday use.',
     price: '17.99',
+    priceValue: 17.99,
+    customizationOptions: ['Text'],
     image: require('../assets/tote.png')
   },
   {
@@ -24,6 +28,8 @@ const productsData = [
     colors: ['White', 'Black', 'Blue'],
     descriptionLong: 'Protect your phone in style! Add your name, photo, or favorite design.',
     price: '19.99',
+    priceValue: 19.99,
+    customizationOptions: ['Text', 'Image'],
     image: require('../assets/phonecase.png')
   },
   {
@@ -33,6 +39,8 @@ const productsData = [
     colors: ['White', 'Black', 'Beige'],
     descriptionLong: 'Create a T-shirt with your favourite phrase or photo, available in all sizes.',
     price: '22.99',
+    priceValue: 22.99,
+    customizationOptions: ['Text', 'Image'],
     image: require('../assets/tshirt.png')
   },
   {
@@ -42,6 +50,8 @@ const productsData = [
     colors: ['White', 'Black', 'Grey'],
     descriptionLong: 'Personalize a cozy hoodie for everyday comfort. Perfect for gifts or yourself!',
     price: '34.99',
+    priceValue: 34.99,
+    customizationOptions: ['Text'],
     image: require('../assets/hoodie.png')
   }
 ];
