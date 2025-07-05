@@ -1,13 +1,14 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Container, Row, Col, Button, Form } from 'react-bootstrap';
+import { Container, Row, Col, Button, Form, Alert } from 'react-bootstrap';
 import './ProductDetail.css';
-
+import { useCart } from '../data/CartContext';
 import productsData from '../data/product'; 
 
 function ProductDetail() {
   const { id } = useParams();
   const product = productsData.find((p) => p.id === parseInt(id));
+  const { addToCart, feedbackMessage } = useCart();
 
   if (!product) {
     return (
@@ -17,6 +18,14 @@ function ProductDetail() {
       </Container>
     );
   }
+
+  const handleAddToCart = () => {
+    addToCart({
+      id: product.id,
+      name: product.name,
+      price: product.priceValue,
+    });
+  };
 
   return (
     <main className="product-detail-main">
@@ -31,6 +40,7 @@ function ProductDetail() {
             <h1 className="product-detail-title">{product.name}</h1>
             <p className="product-detail-desc">{product.descriptionLong}</p>
             <div className="product-detail-price mb-3">{product.price} CAD</div>
+            {feedbackMessage && <Alert variant="success">{feedbackMessage}</Alert>}
             <Form>
               <Form.Group className="mb-3">
                 <Form.Label>Add your custom text</Form.Label>
@@ -40,7 +50,7 @@ function ProductDetail() {
                 <Form.Label>Upload your image (optional)</Form.Label>
                 <Form.Control type="file" accept="image/*" />
               </Form.Group>
-              <Button variant="warning" className="add-cart-btn px-4">Add to Cart</Button>
+              <Button variant="warning" className="add-cart-btn px-4" onClick={handleAddToCart}>Add to Cart</Button>
             </Form>
             <Link to="/products" className="btn btn-link mt-4 ms-0">← Back to All Products</Link>
           </Col>

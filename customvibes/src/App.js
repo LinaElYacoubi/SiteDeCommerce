@@ -11,6 +11,8 @@ import ProductDetail from './pages/ProductDetail';
 import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
 import Confirmation from './pages/Confirmation';
+import Survey from './pages/Survey';
+
 
 function App() {
   return (
@@ -25,6 +27,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/confirmation" element={<Confirmation />} />
+          <Route path="/survey" element={<Survey />} />
         </Routes>
         <Footer />
       </div>
